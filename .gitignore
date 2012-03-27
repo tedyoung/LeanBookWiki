@@ -1,0 +1,9 @@
+.idea
+atlassian-ide-plugin.xml
+out
+target
+runner
+.DS_STORE
+*.iml
+*.ipr
+*.iws

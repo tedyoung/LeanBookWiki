@@ -10,7 +10,14 @@ import java.util.Map;
  */
 public class Wiki {
 
-  Map<String, WikiPage> _pages = Maps.newHashMap();
+  public static final String HOME_PAGE_NAME = "Home";
+  private Map<String, WikiPage> _pages = Maps.newHashMap();
+  private String _currentPageName = "";
+
+  public Wiki() {
+    _pages.put(HOME_PAGE_NAME, new WikiPage());
+    _currentPageName = HOME_PAGE_NAME;
+  }
 
   public boolean isEmpty() {
     return true;
@@ -28,5 +35,13 @@ public class Wiki {
     Preconditions.checkArgument(containsPage(pageName), "Wiki page named '%s' does not exist.", pageName);
     WikiPage wikiPage = _pages.get(pageName);
     return wikiPage.isEmpty();
+  }
+
+  public void goToPage(String pageName) {
+    _currentPageName = pageName;
+  }
+
+  public String getCurrentPageName() {
+    return _currentPageName;
   }
 }

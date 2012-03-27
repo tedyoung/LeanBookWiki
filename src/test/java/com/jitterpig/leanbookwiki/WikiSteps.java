@@ -19,22 +19,21 @@ public class WikiSteps {
     _wiki = new Wiki();
   }
 
-  @Given("that the wiki is empty")
-  public void theWikiIsEmpty() {
-    aNewWiki();
-    assertThat(_wiki.isEmpty())
-            .as("The wiki is NOT empty.")
-            .isTrue();
-  }
-
+  @Given("I'm on the '$name' page")
   @When("I go to the '$name' page")
   public void goToWikiPage(String name) {
-    _pageRequested = name;
+    _wiki.goToPage(name);
   }
 
-  @When("a new wiki page called '$name' is created")
+  @When("I create a new page called '$name'")
   public void createWikiPage(String name) {
     _wiki.createPage(name);
+  }
+
+  @Then("the '$name' page is shown")
+  public void thePageIsShown(String name) {
+    assertThat(_wiki.getCurrentPageName())
+            .isEqualTo(name);
   }
 
   @Then("the wiki page '$name' exists")

@@ -1,4 +1,5 @@
 Meta:
+@author tedyoung@gmail.com
 
 Narrative:
 As a user
@@ -17,4 +18,9 @@ When I create a new page called 'Test'
 Then the 'Test' page is shown
 And the page 'Test' is empty
 
-Scenario:
+Scenario: When new pages are added, they're listed on the home page
+Given a new wiki
+And the 'Home' page is empty
+When I create a new page called 'My New Page'
+And I go to the 'Home' page
+Then the page has a link to 'My New Page'

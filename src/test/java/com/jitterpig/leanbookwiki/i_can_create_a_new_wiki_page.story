@@ -16,3 +16,5 @@ Given I'm on the 'Home' page
 When I create a new page called 'Test'
 Then the 'Test' page is shown
 And the page 'Test' is empty
+
+Scenario:

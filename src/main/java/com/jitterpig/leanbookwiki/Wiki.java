@@ -25,6 +25,7 @@ public class Wiki {
 
   public void createPage(String pageName) {
     _pages.put(pageName, new WikiPage());
+    goToPage(pageName);
   }
 
   public boolean containsPage(String pageName) {

@@ -1,5 +1,7 @@
 Meta:
-@author tedyoung@gmail.com
+@author tedmyoung
+@state wip
+@feature new wiki page
 
 Narrative:
 As a user

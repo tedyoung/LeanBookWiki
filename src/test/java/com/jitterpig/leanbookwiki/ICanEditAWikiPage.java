@@ -3,7 +3,7 @@ package com.jitterpig.leanbookwiki;
 /**
  *
  */
-public class ICanCreateANewWikiPage extends WikiPageJUnitStory {
+public class ICanEditAWikiPage extends WikiPageJUnitStory {
 
   @Override
   protected WikiSteps storyStepsInstance() {

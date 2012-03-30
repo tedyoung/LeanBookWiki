@@ -45,4 +45,8 @@ public class Wiki {
   public String getCurrentPageName() {
     return _currentPageName;
   }
+
+  public WikiPage getPage(String pageName) {
+    return _pages.get(pageName);
+  }
 }

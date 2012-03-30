@@ -2,7 +2,5 @@ Wiki based on Markdown syntax that integrates with Dropbox in order to support w
 
 IntelliJ IDEA Setup:
 
-Make sure you have added `;?*.story` to the end of the Resource Patterns under Settings > Compiler so that IDEA will copy over the story files to where the .class files are.
-This is due to the following configuration of JBehave:
-
-`.useStoryLoader(new LoadFromClasspath(this.getClass()))`
+Make sure you have added `;?*.feature` to the end of the Resource Patterns under Settings > Compiler so that IDEA will
+copy over the Cucumber Feature files to where the .class files are (i.e., the target).

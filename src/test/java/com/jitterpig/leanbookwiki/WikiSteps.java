@@ -19,44 +19,44 @@ public class WikiSteps {
   }
 
   //(?:I'm logged|I log)
-  @Given("^I'm on the '(\\w+)' page$")
-  @When("^I go to the '(\\w+)' page$")
+  @Given("^I'm on the '(.+)' page$")
+  @When("^I go to the '(.+)' page$")
   public void goToWikiPage(String name) {
     _wiki.goToPage(name);
   }
 
-  @When("^I create a new page called '(\\w+)'$")
+  @When("^I create a new page called '(.+)'$")
   public void createWikiPage(String name) {
     _wiki.createPage(name);
   }
 
-  @Then("^the '(\\w+)' page is shown$")
+  @Then("^the '(.+)' page is shown$")
   public void thePageIsShown(String name) {
     assertThat(_wiki.getCurrentPageName())
             .isEqualTo(name);
   }
 
-  @Then("^the wiki page '(\\w+)' exists$")
+  @Then("^the wiki page '(.+)' exists$")
   public void theCurrentPageHasTheSpecifiedTitle(String name) {
     assertThat(_wiki.containsPage(name))
             .as("The wiki does NOT contain a page named " + name)
             .isTrue();
   }
 
-  @Then("^the page '(\\w+)' is empty$")
+  @Then("^the page '(.+)' is empty$")
   public void thePageIsEmpty(String name) {
     assertThat(_wiki.isPageEmpty(name))
             .as("The wiki page " + name + " was NOT empty.")
             .isTrue();
   }
 
-  @When("^I change the contents of '([\\w\\d\\s]+)' to be '(.+)'$")
+  @When("^I change the contents of '(.+)' to be '(.+)'$")
   public void changeContentsOfPage(String pageName, String text) {
     WikiPage wikiPage = _wiki.getPage(pageName);
     wikiPage.setText(text);
   }
 
-  @Then("^the page '([\\w\\d\\s]+)' contains '(.+)'$")
+  @Then("^the page '(.+)' contains '(.+)'$")
   public void thePageContains(String pageName, String text) {
     assertThat(_wiki.getPage(pageName).getText())
             .contains(text);

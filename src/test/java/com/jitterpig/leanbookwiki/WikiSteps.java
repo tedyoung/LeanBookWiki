@@ -4,6 +4,7 @@ import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 
+import static junit.framework.Assert.fail;
 import static org.fest.assertions.Assertions.assertThat;
 
 /**
@@ -56,15 +57,21 @@ public class WikiSteps {
     wikiPage.setText(text);
   }
 
-  @Then("^the page '(.+)' contains '(.+)'$")
+  @Then("^the page '(.+)' contains the markdown '(.+)'$")
   public void thePageContains(String pageName, String text) {
-    assertThat(_wiki.getPage(pageName).getText())
+    assertThat(_wiki.getPage(pageName).getAsMarkdown())
             .contains(text);
   }
 
-  //  @Then("^the page has a link to 'My New Page'$$")
+  @Then("the page '(.+)' contains the HTML '(.+)'$")
+  public void thePageContainsTheHtml(String pageName, String html) {
+    assertThat(_wiki.getPage(pageName).getAsHtml())
+            .contains(html);
+  }
+
+  @Then("^the page has a link to 'My New Page'$$")
   public void thenThePageHasALinkToMyNewPage() {
-    // PENDING
+    fail("links don't work yet");
   }
 
 }

@@ -5,7 +5,8 @@ Feature: Edit an existing Wiki page
 
   Scenario: Change contents of a wiki page
     Given a new wiki
-    And   I'm on the 'Home' page
+     And  I'm on the 'Home' page
     When  I create a new page called 'Test'
-    And   I change the contents of 'Test' to be '# Test'
-    Then  the page 'Test' contains '# Test'
+     And  I change the contents of 'Test' to be '#Test'
+    Then  the page 'Test' contains the markdown '#Test'
+     And  the page 'Test' contains the HTML '<h1>Test</h1>'
